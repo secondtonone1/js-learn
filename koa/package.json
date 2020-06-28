@@ -1,0 +1,22 @@
+{
+    "name": "koaweb",
+    "version": "1.0.0",
+    "description": "koaweb Koa 2 example with async",
+    "main": "koaweb.js",
+    "scripts": {
+        "start": "node koaweb.js"
+    },
+    "keywords": [
+        "koa",
+        "async"
+    ],
+    "author": "secondtonone1",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/secondtonone1/js-learn.git"
+    },
+    "dependencies": {
+        "koa": "2.0.0"
+    }
+}
