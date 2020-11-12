@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+</html>
+<script type="text/javascript">
+//js中this代表的是当前行为执行的主体;
+//js中context代表的是当前行为执行的环境
+//this是谁和函数在哪定义的和在哪执行的都没有关系
+// 1 函数执行, 首先看函数名前是否有".",如果有"."前面是谁this就是谁
+//如果没有".",this就是window
+/*
+function fn() {
+    console.log(this);
+}
+var obj={
+    fn: fn
+};
+fn() //this为window
+obj.fn(); //this为obj
+function sum(){
+    fn(); //this为window
+}
+sum();
+
+var oo= {
+    sum: function(){
+        //this为oo
+        fn(); //this 为window
+    }
+};
+oo.sum();
+*/
+//2 自执行函数中的this永远是window
+//3 给元素的某一个事件绑定方法，当事件触发时候，执行对应的方法，方法中的this就是当前元素
+
+</script>
+<div id="div1">有本事点我啊~~</div>
+<script type="text/javascript">
+/*
+function fn() {
+    console.log(this);
+}
+document.getElementById("div1").onclick = fn; //fn中this为元素
+document.getElementById("div1").onclick = function(){
+    fn(); //fn中的this为window
+};
+*/
+var num = 20;
+var obj = {
+    num:30,
+    fn:(function (num){
+        this.num *= 3;
+        num += 15;
+        var num = 45;
+        return function(){
+            this.num  *= 4;
+            num += 20;
+            console.log(num);
+        }
+    })(num)
+};
+
+var fn = obj.fn;
+fn();
+obj.fn();
+console.log(window.num, obj.num);
+
+//给fn赋值的自执行函数function的形参num传递的值为全局变量num，num为20，而不是30
+//只有明确指明obj.num才是传递obj的num
+//执行自执行函数num为20，this.num中this为window所以this.num*=3所以全局num变为60,私有作用域num为20，
+//所以var num预解释不做声明
+//num+=15,num变为35，接下来num赋值为45，最后返回匿名函数function()
+//此时调用fn(),this.num为全局num,this.num*=4，全局变量变为240，num+=20，num会根据追踪链追踪至上层的num
+//此时num为45，所以num+=20后变为65，先输出65
+//obj.fn()中的this为obj，obj此时num为30，所以this.num*=4，obj的num变为120，num+=20会向上查找，找到自执行函数
+//因为匿名函数被外界引用所以无法释放，进而自执行函数num无法释放，num之前为65，num+=20，num变为85
+//输出window.num为240，obj.num为120
+
+</script>

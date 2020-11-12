@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+<div class="box">
+    <h2>问题：认为vico漂亮的点赞~~</h2>
+    <div id="btn">我非常非常赞同以上的观点<span
+        id="spanNum">0</span></div>
+</div>
+<script type="text/javascript">
+    var oBtn=document.getElementById("btn");
+    var spanNum = document.getElementById("spanNum");
+    //1 利用全局作用域不销毁原理，把需要累加的数字定义为全局变量
+    /*
+    var count = 0;
+    oBtn.onclick=function(){
+        count++;
+        spanNum.innerHTML = count;
+    }*/
+    //弊端：为了防止全局变量中的冲突，我们一般禁止或者减少使用全局变量
+
+    //2 自己形成一个不销毁的私有作用域来保存我们需要累加的数字
+
+    /*
+    oBtn.onclick=function(){
+        var count = 0;
+        return function(){
+            count++;
+            spanNum.innerHTML = count;
+        }
+    }()
+    */
+   /*
+   ~function(){
+    var count = 0;
+    oBtn.onclick = function(){
+        count++;
+        spanNum.innerHTML = count
+    }
+   }()  
+   */
+  //弊端：有一个不销毁的私有作用域
+   //3 利用innerHTML的方式处理:每一次点击的时候都取页面中的值然后累加放回去
+   oBtn.onclick = function(){
+        spanNum.innerHTML ++
+   };
+   //弊端：每次页面字符串转化为数字然后累加，再转化为字符串，然后渲染回去
+   //4 自定义属性存储
+   oBtn.count = 0;
+   oBtn.onclick = function(){
+       spanNum.innerHTML = ++this.count
+   }
+
+</script>
+</body>
+</html>
