@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+function Fn(){
+    this.x = 100
+    this.y = 200
+}
+
+Fn.prototype.getX = function(){
+    console.log(this.x)
+}
+
+Fn.prototype.getY = function(){
+    console.log(this.y)
+}
+
+Fn.prototype.setX = function(n){
+    this.x = n
+}
+
+var f1 = new Fn
+var f2 = new Fn
+
+//1. 看方法执行的时候"."前面是谁，this就是谁
+//2. 把函数体中的this替换成分析的结果
+//3. 按照原型链的查找模式找到对应的值即可
+f1.getX() //this->f1, console.log(f1.x)
+f1.__proto__.getX() //this->f1.__proto__, console.log(f1.__proto__.x)
+Fn.prototype.setX(300) //this->Fn.prototype, Fn.prototype.x = 300
+f1.getX() 
+f1.__proto__.getX()
+f1.setX(500)  //this->f1, f1.x = 500
+f1.y = 300  //f1本身增加一个私有属性，和f2没关系
+f1.__proto__.y = 1000 //在原型上增加一个y=1000属性，f2也可以获取到y这个值
+</script>
+<script type="text/javascript">
+//基于内置类的原型扩展方法，我们需要注意的事项：我们自己编写的方法名最好加上前缀
+//防止把内置的方法覆盖掉
+Array.prototype.myUnique = function myUnique() {
+    //this->ary 当前要操作的那个数组
+    var obj = {}
+    for (var i = 0; i < this.length; i++){
+        var cur = this[i]
+        if (obj[cur] === cur) {
+            this[i] = this[this.length-1]
+            this.length--
+            i--
+            continue
+        }
+
+        obj[cur] = cur
+    }
+    obj = null
+    //把去重后的数组返回，这样就实现了链式写法
+    return this 
+}
+
+var ary = [12,23,34,23,34,56]
+//链式写法：执行完成某一个方法，不仅得到了想要的结果
+//而且返回值还需要是当前类的实例，这样才能一直链下去
+ary.sort(function(a,b){
+    return a-b
+}).reverse().slice(0,5).pop()
+ary.myUnique()
+console.log(ary)
+</script>
+<script type="text/javascript">
+
+    function Fn(){
+        this.x = 200
+    }
+    var pro = Fn.prototype
+    pro.a = function(){
+        
+    }
+    Fn.prototype = {
+        constructor:Fn,
+        b:function(){
+
+        }
+    }
+    var f = new Fn
+    //如果之前原型上存在一些方法，我们现在创建这个对象会把之前的那些方法覆盖掉
+    //所以浏览器内置类是禁止自己创建一个新对象来扩展原型上的方法
+    //防止我们Array.prototype={} 把内置的方法都干没了
+    //自己创建的对象中不会天生自带constructor，所以导致了我们f.constructor的结果
+    //是Object而不是我们认为的Fn
+
+</script>
+</body>
+</html>

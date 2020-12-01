@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+<script type="text/javascript">
+//在原型模式中，this常用的有两种情况:
+//在类中this.xxx=xxx; this->当前类的实例
+//在某一个方法中的this,this->看执行的时候"."前面是谁this就是谁
+//1) 需要先确定this的指向(this是谁)
+//2) 把this替换成对应的代码
+//3) 按照原型链查找的机制，一步步查找结果
+function Fn(){
+    this.x = 100
+    this.y = 200
+    this.getY = function() {
+        console.log(this.y)
+    }
+}
+
+Fn.prototype = {
+    constructor:Fn,
+    y:300,
+    getX: function(){
+        console.log(this.x)
+    },
+    getY: function() {
+        console.log(this.y)
+    }
+};
+
+var f = new Fn;
+f.getX()  //console.log(f.x) -> 100
+f.getY()
+// this是谁 f.__proto__ -> console.log(f.__proto__.x)-> undefined
+f.__proto__.getX()
+Fn.prototype.getX() //undefined
+f.__proto__.getY() //->300
+
+Array.prototype.myUnique = function() {
+    var obj={}
+    for(var i = 0; i < this.length; i++){
+        var cur = this[i]
+        if (obj[cur]==cur){
+            this[i] = this[this.length-1]
+            this.length--
+            i--
+            continue
+        }
+        obj[cur] = cur
+    }
+    obj = null
+    return this
+}
+
+var ary=[12,12,23,44,56,44]
+ary.myUnique()
+console.log(ary)
+//Array.prototype.myUnique();
+//链式写法，执行完数组的一个方法可以紧接着执行下一个方法
+//原理:
+//ary为什么可以使用sort方法，因为sort是Array.prototype上的公有的方法
+//而数组ary是Array这个类的一个实例，所以ary可以使用sort方法
+//数组才能使用Array原型上定义的属性和方法
+//reverse执行完成返回值是一个数组，可以继续执行pop
+//sort执行完成返回值是一个数组
+//pop执行后返回值是一个元素
+ary.sort(function(a,b) {
+    return a -b;
+}).reverse().pop()
+console.log(ary)
+ary.myUnique().sort(function(a,b){return a-b})
+
+</script>
+</body>
+</html>
