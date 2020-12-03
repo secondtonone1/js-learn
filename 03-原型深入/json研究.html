@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+/*
+json对象就是属性名也用字符串括起来
+
+在window浏览器对象中，提供了一个叫做JSON的属性，它里面提供了两个方法:
+window.JSON
+1) JSON.parse  -> 把json格式的字符串转换为Json格式的对象
+2) Json.stringify  -> 把json格式的对象转换为json格式的字符串
+*/
+
+var jsonObj = {name:"zack",age:7}
+var jsonStr = JSON.stringify(jsonObj)
+console.log(jsonStr)
+var str='{"name":"zack","age":7}'
+console.log(JSON.parse(str))
+//在IE6~7浏览器中，我们的window没有JSON对象，刚才parse和stirngify都不存在
+//把json格式的字符转换为json格式的对象
+var str='{"name":"zack","age":7}'
+//IE6~7不支持parse,所以eval将字符串转为json对象，但是要加()
+console.log(eval("(" + str + ")"))
+</script>
+<script type="text/javascript">
+var str='{"name":"zack","age":7}'
+    var utils ={
+        jsonParse:function(str){
+            var val = null
+            try{
+                val = JSON.parse(str)
+            }catch(e){
+               val = eval("(" + str + ")")
+            }
+
+            return val
+        }
+    }
+
+    console.log(utils.jsonParse(str))
+</script>
+</body>
+</html>

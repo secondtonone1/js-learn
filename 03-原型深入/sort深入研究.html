@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+var ary=[12,13,32,21,34,43,41,12,22]
+//ary.sort() 只能处理10以内的数字排序
+ary.sort(
+    function(a,b){
+        //大于0交换位置
+        //<=0不交换位置
+        return a-b  //升序
+        //return b-a //降序
+    }
+)
+console.log(ary)
+//回调函数
+function fn(callback){
+    callback()
+}
+
+fn(function(){})
+var ary=[12,13,32,21,34,43,41,12,22]
+ary.sort(function(a,b){
+    //最后结果为数组倒置
+    return -1 
+})
+console.log(ary)
+</script>
+</body>
+</html>

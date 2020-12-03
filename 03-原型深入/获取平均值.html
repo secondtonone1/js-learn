@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+function avgFn(){
+   //arguments是一个类数组集合，不是数组，不能直接使用数组的方法
+   // arguments.sort()
+   //1 将类数组转化为数组
+   //借用数组原型上的slice方法，将slice执行的时候让方法中的this变为要处理的arguments
+   //从而实现arguments转换为数组
+   var ary=[]
+   for (var i = 0; i < arguments.length; i++){
+       ary[ary.length] = arguments[i]
+   }
+   //console.log(ary)
+
+   //2 给数组排序,去掉开头和结尾, 剩下的就是平均数
+   ary.sort(function(a,b){
+       return a-b
+   })
+   ary.shift()
+   ary.pop()
+   return (eval(ary.join("+"))/ary.length).toFixed(2)
+}
+var avgN = avgFn(9.8,9.7,10,9.9,9.0,9.8,3.0)
+console.log(avgN)
+</script>
+<script type="text/javascript">
+    Array.prototype.mySlice = function(){
+        var ary = []
+        for (var i = 0; i < this.length; i++){
+            ary[ary.length] = this[i]
+        }
+        return ary
+    }
+
+    var ary = [12, 34, 23]
+    var newAry = ary.mySlice()
+    console.log(newAry)
+</script>
+<script type="text/javascript">
+    function avgFn(){
+       //arguments是一个类数组集合，不是数组，不能直接使用数组的方法
+       // arguments.sort()
+       //1 将类数组转化为数组
+       //借用数组原型上的slice方法，将slice执行的时候让方法中的this变为要处理的arguments
+       //从而实现arguments转换为数组
+       var ary = Array.prototype.slice.call(arguments)
+       //下边这种写法也行
+       //ary=[].slice.call(arguments)
+    
+       //2 给数组排序,去掉开头和结尾, 剩下的就是平均数
+       ary.sort(function(a,b){
+           return a-b
+       })
+       ary.shift()
+       ary.pop()
+       return (eval(ary.join("+"))/ary.length).toFixed(2)
+    }
+    var avgN = avgFn(9.8,9.7,10,9.9,9.0,9.8,3.0)
+    console.log(avgN)
+</script>
+<script type="text/javascript">
+    function avgFn(){
+      
+       Array.prototype.sort.call(arguments, function(a,b){
+           return a-b
+       })
+       
+       Array.prototype.shift.call(arguments)
+       Array.prototype.pop.call(arguments)
+       return (eval(Array.prototype.join.call(arguments, "+"))/(arguments.length)).toFixed(2)
+    }
+    var avgN = avgFn(9.8,9.7,10,9.9,9.0,9.8,3.0)
+    console.log(avgN)
+</script>
+</body>
+</html>

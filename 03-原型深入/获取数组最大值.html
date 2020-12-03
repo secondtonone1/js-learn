@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+//1 先排序，再取首位
+var ary = [12,23,34,35,5,7,32]
+ary.sort(function(a,b){return a-b})
+var min = ary[0];
+var max = ary[ary.length-1]
+console.log(min, max)
+
+//2 遍历拿这个值和后边的值比较，找出最大的
+var ary = [12,23,34,35,5,7,32]
+var min = ary[0]
+var max = ary[0]
+
+for (var i = 0; i < ary.length; i++){
+    min > ary[i]?min=ary[i]:null
+    max < ary[i]?max=ary[i]:null
+
+}
+console.log(min, max)
+
+//3 
+var max = eval("Math.max("+ary.toString()+")")
+console.log(max)
+
+// 利用apply
+var maxf = Math.max.apply(null, ary)
+var minf = Math.min.apply(null, ary)
+console.log(maxf)
+console.log(minf)
+</script>
+</body>
+</html>
