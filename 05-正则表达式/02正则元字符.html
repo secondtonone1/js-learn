@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //元字符：
+    //每一个正则表达式都是由元字符和修饰符组成的
+    //[元字符]  ->在//之间具有意义的一些字符
+    //1 具有特殊意义的元字符
+    // \:转译字符, 转译后面字符所代表的含义
+    // ^:以某一个元字符开始
+    // $:以某一个元字符结尾
+    // .:除了\n以外的任意字符
+    // \n: 匹配一个换行符
+
+    //2 代表出现次数的量词元字符
+    //* : 出现零到多次
+    //+ : 出现一到多次
+    //? : 出现零次或者一次
+    //{n}: 出现n次
+    //{n,}: 出现n到多次
+    //{n,m}: 出现n到m次
+
+    var reg=/^\d+$/
+    console.log(reg.test("2020"))
+
+    var reg = /\d/
+    console.log(reg.test("ziufenh2015"))
+
+    var reg = /^\d$/
+    console.log(reg.test("2020"))
+
+    //验证手机号码
+    var reg = /^1\d{10}$/
+    console.log(reg.test("18301152001"))
+    var reg = /^0.2$/
+    console.log(reg.test("0,2"))
+    var reg = /^0\.2$/
+    console.log(reg.test("0.2"))
+    console.log(reg.test("0-2"))
+    //():分组
+    //把一个大正则划分成几个小的正则
+    var reg =/^(\d+)zack(\d+)$/;
+    //x|y:x或者y中的一个
+    //[xyz]:x或者y或者z中的一个
+    //[^xyz]:除了三个中的任何一个字符
+    //[a-z]：a-z之间的任何一个字符
+    //[^a-z]：除了a-z之间的任何一个字符
+    //\d:一个0-9之间的数字  \D:除了0-9之间的数字以外的任何字符
+    // \b: 一个边界符 "w1 w2 w3"
+    // \w: 数字、字母、下划线中的任意字符 [(0-9)(a-z)(A-Z)(_)]
+    // \s:匹配一个空白字符，制表符，空格，或者换行符
+
+</script>

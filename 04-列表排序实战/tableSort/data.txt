@@ -1,0 +1,7 @@
+[
+     {"name":"夏侯惇","age":25,"hurt":95,"sex":1},
+     {"name":"貂蝉","age":24,"hurt":195,"sex":0},
+     {"name":"曹孟德","age":55,"hurt":80,"sex":1},
+     {"name":"甄姬","age":23,"hurt":88,"sex":0},
+     {"name":"小乔","age":26,"hurt":200,"sex":0}
+]

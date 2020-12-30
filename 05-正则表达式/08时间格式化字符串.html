@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //第一步:将指定格式得时间字符串中的年月日转化为数组
+    var str = "2015-6-10 14:53:00", reg=/^(\d{4})[-/](\d{1,2})[-/](\d{1,2}) +(\d{1,2}):(\d{1,2}):(\d{1,2})$/g,
+    ary = []
+
+    str.replace(reg,function(){
+        ary=[].slice.call(arguments)
+        ary = ary.slice(1,7)
+        console.log(ary)
+    })
+    
+    //2015年06月10日  14时53分00秒
+
+    var resStr="{0}年{1}月{2}日 {3}时{4}分{5}秒"
+    
+    var reg = /{(\d+)}/g
+    /*
+    console.log(reg.exec(resStr))
+    console.log(reg.exec(resStr))
+    console.log(reg.exec(resStr))
+    console.log(reg.exec(resStr))
+    console.log(reg.exec(resStr))
+    console.log(reg.exec(resStr))
+    */
+
+    resStr = resStr.replace(reg, function(){
+        //每一次都会把正则匹配得内容捕获到，如果没有分组，一般是三个参数
+        //如果正则中有需要捕获的分组，参数得个数就不确定了。从arguments[1]开始就是对应分组捕获得内容
+        //arguments[0]是大正则捕获得内容
+        console.log(arguments)
+        var num = arguments[1],val=ary[num]
+        val.length===1? val="0"+val:void 0
+        return val
+    })
+    console.log(resStr)
+/*
+我的躯壳里有三个灵魂
+一个红色
+热情如火
+一个蓝色
+沉寂如水
+白天属于红色
+夜晚属于蓝色
+就像两个线程
+交替的占用着身体的资源
+而最近
+他们彼此想要吞噬对方
+但是他们低估了
+上帝的创造力
+我的第三个灵魂觉醒了
+那是主线程
+火焰和大海
+要么融合
+要么全部消亡
+    */
+</script>
+
+
+
+

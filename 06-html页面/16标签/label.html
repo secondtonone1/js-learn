@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>第一种用法 label直接包含表单</h4>
+    <label>用户名: <input type="text" name="username" value="请输入用户名"/></label>
+    <h4>第二种方法，通过for和id控制</h4>
+    <label for="nc">昵称: </label>  <input type="text" name="username" id="nc"/>
+    <h4>文本域</h4>
+    用户留言: <textarea ></textarea> <br/>
+    <br/>
+    籍贯:
+    <!--默认选中  selected="selected"-->
+    <select>
+        <option>--请选择省份--</option>
+        <option  selected="selected">北京</option>
+        <option>天津</option>
+        <option>上海</option>
+        <option>山东</option>
+    </select>
+
+    <select>
+        <option>--请选择城市--</option>
+        <option>北京</option>
+        <option>天津</option>
+        <option>上海</option>
+        <option>青岛</option>
+    </select>
+
+    <form action="" method="get">
+        用户名: <input type="text" name="username" /> <br />
+        密码: <input type="password" name="pwd"/> <br />
+        <input type="submit" />
+        <input type="reset" />
+    </form>
+</body>
+</html>

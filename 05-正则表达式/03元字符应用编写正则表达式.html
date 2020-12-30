@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //1、有效数字的正则，正数，负数，0，小数
+    //1)"."可以出现也可以不出现，但是一旦出现，后面必须跟着一位或者多位数字
+    //2)最开始可以有+/-也可以没有
+    //3)整数部分，一位数可以是0-9之间的一个，多位数不能以0开头
+    //[]出现中的所有字符都是代表本身意思的字符，没有特殊含义
+    var reg =/[.]/
+    console.log(reg.test("t"))
+    //以下会造成多种匹配
+    var reg =/^18|19$/
+    console.log(reg.test("181"))
+    console.log(reg.test("119"))
+    console.log(reg.test("819"))
+    console.log(reg.test("1819"))
+    console.log(reg.test("189"))
+    var reg =/^(18|19)$/
+    console.log(reg.test("18"))
+    console.log(reg.test("19"))
+    //分组的作用改变x|y的优先级
+    //判断是不是有效数字
+    var reg = /^[+-]?(\d|([1-9]\d+))(\.\d+)?$/
+    console.log(reg.test("+12.34"))
+    var name = "zack"
+    var reg = /^\d+"+name+"\d+$/g
+    console.log(reg.test("2020zack2012"))
+    console.log(reg.test('2012"""nameeee"2016'))
+
+    var reg = /^\d+root\d+$/
+    console.log(reg.test("2020root2012"))
+    //对于这样的需求只能使用实例创建的方式 
+    var reg=new RegExp("^\\d+"+name+"\\d+$","g")
+    console.log(reg.test("2020zack2012"))
+
+    //字面量方式和实例创建的方式在正则中的区别
+    //1) 字面量方式中出现的一切都是元字符，所以不能进行变量值的拼接，而实例创建的方式是可以的。
+    //2) 字面量方式中直接写\d就可以，而在实例中需要把它转译 \\d
+
+    //[]不识别两位数
+    var reg = /^[12]$/  //1或者2中的一个
+    var reg = /^[12-68]$/  // ->1、2-6中的一个，8三个中的一个
+
+    //包含数字、字母、下划线、-中的一个
+    var reg=/^[\w-]$/;
+    console.log(reg.test("-"))
+
+    //2 年龄介于18~65之间   18~19   20~59  60~65
+    var reg = /^(1[8-9]|[2-5]\d|6[0-5])$/
+    console.log(reg.test("18"))   //true
+    console.log(reg.test("123"))  //false
+
+    //验证邮箱
+    //左边:数字，字母，下划线, . -都有可能
+    //18301152008@qq.com
+    //zhou_xiao_yan@163.com
+    var reg = /^[\w.-]+@[0-9a-zA-z]+(\.[a-zA-Z]{2,4}){1,2}$/
+    console.log(reg.test("secondtonone1@163.com"))
+
+    //身份证, 2位省，4位市，4位年，2位月，2位日，2位区，1位性别，1位特殊字符(数字或者字符)
+    //可以加分组捕获其中的数字
+    var reg=/^(\d{2})\d{4}\d{4}\d{2}\d{2}\d{2}\d(\d|X)$/
+    console.log(reg.test("22080219881105001X"))
+
+</script>

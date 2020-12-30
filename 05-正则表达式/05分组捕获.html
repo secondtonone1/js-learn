@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //正则分组:
+    //1、改变优先级
+    //2、分组引用
+    //\2代表和第二个分组一模一样的内容
+    //\1代表和第一个分组一模一样的内容
+    //一模一样，和对应分组中的内容的值都要一样
+    var reg=/^(\w)\1(\w)\2$/
+    console.log(reg.test("zfzf"))
+    console.log(reg.test("zzff"))
+
+    //3分组捕获  -> 正则在捕获的时候，不仅仅把大正则匹配的内容捕获到，而且还可以把小分组匹配的内容捕获到
+    var reg=/^(\d{2})(\d{4})(\d{4})(\d{2})(\d{2})(\d{2})(\d)(?:\d|X)$/
+
+    var str = "22080219881105001X"
+    console.log(reg.exec(str))
+    /*
+    ["22080219881105001X", "22", "0802", "1988", "11", "05", "00", "1", "X", 
+    index: 0, input: "22080219881105001X", groups: undefined]
+    */
+
+    //ary[0] -> 大正则匹配的内容
+    //ary[1] -> 第一个分组捕获的内容
+    //ary[2] -> 第二个分组捕获的内容
+
+    //(?:)在分组中?:的意思是只匹配不捕获
+    //match捕获一次的情况下和exec是一样的
+    console.log(str.match(reg))  //->和exec获取的结果是一样的
+
+    var reg = /zack(\d+)/g
+    var str = "zack1234zack5678zack8901"
+    //我们用exec执行三次，每一次不仅仅把大正则匹配的获取到，而且还可以获取第一个分组的内容
+    console.log(reg.exec(str))
+    console.log(reg.exec(str))
+    console.log(reg.exec(str))
+    //而match只能捕获大正则匹配的内容
+    console.log(str.match(reg))
+</script>
