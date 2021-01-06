@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后代选择器</title>
+    <style>
+        /*常山  赵子龙*/
+        .nav a{
+            color: pink;
+        }
+
+        ul .n1{
+            color: green;
+        }
+        .朱元璋 ul li{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="#">内部链接</a>
+        <a href="#">内部链接</a>
+        <a href="#">内部链接</a>
+    </div>
+    <a href="#">外部链接</a>
+    <a href="#">外部链接</a>
+    <a href="#">外部链接</a>
+    <ul>
+        <li class="n1">明朝那些事</li>
+        <li>明朝那些事</li>
+        <li>明朝那些事</li>
+    </ul>
+    <div class="朱元璋">
+        <ul>
+            <li>朱棣</li>
+            <li>朱允炆</li>
+            <li>朱厚照</li>
+        </ul>
+    </div>
+</body>
+</html>

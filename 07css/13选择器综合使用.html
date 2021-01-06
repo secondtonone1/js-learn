@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>链接伪类选择器</title>
+    <style>
+        .site-r a{
+            color: red;
+        }
+
+        .nav ul li a{
+            color: green;
+        }
+
+        .nav,
+        .sitenav{
+            font:14px "微软雅黑"
+        }
+    </style>
+</head>
+<body>
+    <!--主导航栏-->
+    <div class="nav">
+        <ul>
+            <li><a href="" class="">C++</a></li>
+            <li><a href="">Go</a></li>
+            <li><a href="">Python</a></li>
+            <li><a href="">Javascript</a></li>
+        </ul>
+    </div>
+    <!--侧导航栏-->
+    <div class="sitenav">
+        <div class="site-l">
+            左侧侧导航栏
+        </div>
+        <div class="site-r">
+            <a href="">登录</a>
+        </div>
+    </div>
+</body>
+</html>

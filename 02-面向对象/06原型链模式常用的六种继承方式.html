@@ -49,8 +49,9 @@ for (var key in obj) {
     Fn.prototype = obj
    
     var f = new Fn()
-
+    console.log(f.name)
     var obj3 = Object.create(obj)
+    console.log(obj3.name)
 </script>
 
 <script type="text/javascript">

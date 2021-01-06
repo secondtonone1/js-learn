@@ -72,6 +72,15 @@ console.dir(Array.prototype)
 //我们以后在内置类的原型上加方法，命名都需要加上特殊前缀
 Array.prototype.sort = function(){
     console.log("ok"); //this->ary 我们当前要操作的这个数组
+    for (var i = 0; i < this.length; i ++){
+       for(var j=i+1; j < this.length; j++){
+           if(this[i] > this[j]){
+               var temp = this[i]
+               this[i] = this[j]
+               this[j] = temp
+           }
+       }
+   }
 }
 var ary = [1,2,2,1,2,3,4,2,1,3]
 ary.sort()
