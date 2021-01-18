@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动口诀</title>
+    <style>
+        .one {
+            /* 浮, 不是标准流，漂浮起来，浮在标准流的上面 */
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+
+        .two {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        /* 漏，浮动的盒子会把自己原来的位置漏给下面标准流的盒子，浮动的盒子不占有原来标准流的位置 */
+        /* 特， 浮动，特性，会改变元素display属性 */
+        /* 这个盒子添加浮动后，仍然是块级元素，默认相当于转换为了inline-block */
+        .three {
+            float: left;
+            height: 100px;
+            background-color: orangered;
+        }
+
+        .four {
+            height: 200px;
+            width: 200px;
+            background-color: blue;
+            float: left;
+        }
+
+        /* 浮动元素默认之间没有空隙，和真正的行内块有区别 */
+    </style>
+</head>
+<body>
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three">
+        乱世英豪
+    </div>
+    <div class="four"></div>
+</body>
+</html>

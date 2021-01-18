@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算盒子大小</title>
+    <style>
+        div{
+            height: 180px;
+            width: 180px;
+            background-color: pink;
+            padding: 10px;
+            /* 盒子的实际大小 = 内容宽度 高度+ 内边距 +边框 */      
+        }
+
+        p{
+            height: 30px;
+            background-color: purple;
+            padding-left: 30px;
+            /* 特殊情况，如果这个盒子，没有宽度，则padding不会撑开盒子 */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p></p>
+    </div>
+</body>
+</html>

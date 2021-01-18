@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* overflow会隐藏框外的图片或者文本，增加auto或者scroll会增加滚动条，看起来不美观 */
+        .father1 {
+            float: left;
+            width: 400px;
+            height: 500px;
+            border: solid 1px black;
+            overflow: hidden;
+            margin-left: 10px;
+        }
+
+        .father2 {
+            margin-left: 10px;
+            float: left;
+            width: 400px;
+            height: 500px;
+            border: solid 1px black;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="father1">
+        <img src="images/8.jpg" alt="">
+    </div>
+
+    <div class="father2">
+        <img src="images/8.jpg" alt="">
+    </div>
+
+</body>
+</html>

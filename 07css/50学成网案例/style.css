@@ -1,0 +1,381 @@
+/*清除元素默认的内外边距*/
+* {
+    margin:  0px;
+    padding: 0px;
+}
+
+/* 版心水平居中 */
+.w {
+    margin: auto;
+    width: 1200px;
+}
+
+body {
+    background-color: #f3f5f7;
+}
+
+/* header start  */
+.header {
+    width: 1200px;
+    height: 42px;
+    /* background-color: pink; */
+    margin: 30px auto;
+}
+
+.logo{
+    float: left;
+}
+
+.nav {
+    float: left;
+    margin-left: 60px;
+}
+
+.nav ul li {
+    list-style: none;
+    float: left;
+    line-height: 42px;
+    text-align: center;
+}
+
+.nav ul li a {
+    display: block;
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 10px;
+    text-decoration: none;
+    color: #050505;
+    margin-right: 20px;
+}
+
+.nav ul li a:hover{
+    border-bottom: 2px solid #00a4ff;
+}
+
+.search {
+    float: left;
+    margin-left: 70px;
+}
+
+.search input {
+    float: left;
+    width: 340px;
+    height: 40px;
+    border: 1px solid #00a4ff;
+    padding-left: 20px;
+    color: #ccc;
+    border-right:  none;
+}
+/* 去掉按钮默认边框 */
+button {
+    border: none;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+.search button {
+    float: left;
+    width: 50px;
+    height: 42px;
+    background: url(images/btn.png);
+}
+
+.user {
+    float: left;
+    margin-left: 30px;
+    font-size: 14px;
+    color: #666;
+    height: 42px;
+    line-height: 42px;
+}
+
+/* start end */
+
+/* banner start  */
+.banner {
+    height: 420px;
+    background: #1c036c url(images/banner.png) no-repeat top center;
+}
+
+.subnav {
+    float: left;
+    width: 150px;
+    height: 420px;
+    background-color:rgba(0,0,0,.3);
+    padding: 0 20px;
+}
+
+.subnav ul li  {
+    height: 45px;
+    line-height: 45px;
+}
+
+.subnav li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+}
+
+.subnav a span {
+    float: right;
+}
+
+.subnav li a:hover{
+    color: #00b4ff;
+}
+
+.course {
+    /* 因为course子盒子有了浮动，所以就不会有外边距塌陷问题了 */
+    float: right;
+    width: 228px;
+    height: 300px;
+    margin-top: 50px;
+    background-color: #fff;
+}
+
+.course-hd {
+    height: 48px;
+    background-color: #9bceea;
+    font-size: 18px;
+    text-align: center;
+    line-height: 48px;
+    color: #fff;
+    /* 文字加粗 */
+    /* font-weight: bold; */
+    font-weight: 700;
+}
+
+.course-bd {
+    /* 没有宽度的盒子给了padding不会撑开盒子 */
+    padding: 0 15px;
+}
+
+.course-bd li {
+    /* 行高等于高度只能让单行文本垂直居中 */
+    height: 50px;
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+/* 外边距塌陷问题 */
+/* .course-bd ul {
+    margin-top: 10px;
+} */
+
+.course-bd ul {
+    padding-top: 10px;
+}
+
+.course-bd li h4 {
+    font-size: 14px;
+    color: #4e4e4e;
+}
+
+.course-bd li p {
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+.all {
+    display: block;
+    height: 38px;
+    border: 1px solid #00a4ff;
+    margin-top: 10px;
+    text-align:  center;
+    line-height: 38px;
+    color: #00a4ff;
+    font-size: 16px;
+}
+
+.all:hover {
+    background-color:  #00a4ff;
+    color: #fff;
+}
+/* banner end  */
+/* goods start */
+.goods {
+    height: 60px;
+    /* background-color: pink; */
+    background-color:#fff;
+    box-shadow: 2px 2px 2px rgba(0,0,0, .3);
+    /* 利用继承性 */
+    line-height: 60px;
+}
+
+.goods h3 {
+    float: left;
+    font-size: 16px;
+    color: #00a4ff;
+    margin: 0 30px;
+}
+
+.goods-item {
+    float: left;
+    color: #bfbfbf
+}
+
+.goods-item a {
+    margin: 0 30px;
+    color :#050505;
+    font-size: 16px;
+}
+
+.mod {
+    float: right;
+    font-size: 16px;
+    color: #00a4ff;
+    margin-right: 30px;
+}
+/* goods end */
+
+/* box start  */
+.box {
+    margin-top: 15px;
+}
+
+.box-hd {
+    height: 60px;
+    line-height: 60px;
+    background-color: #fff;
+}
+
+.box-hd h3 {
+    float: left;
+    font-weight: normal;
+    font-size: 20px;
+    color: #494949
+}
+
+.box-hd a {
+    float: right;
+    font-size: 12px;
+    color: #a5a5a5;
+    margin-right: 30px;
+}
+
+.box-bd {
+    /* 这个盒子一定不要给高度 不确定放几行 */
+    /* 228*270 */
+    /* box-bd 宽度超过了版心1200是可以的，解决了问题 */
+    width: 1215px;
+}
+
+.box-bd li {
+    float:left;
+    background-color: #fff;
+    width: 228px;
+    height: 270px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+}
+
+.box-bd li:hover {
+    background-color: rgba(0,0,0,.1);
+}
+
+.box-bd li img {
+    width: 100%;
+}
+
+.box-bd li h4 {
+    margin: 25px 20px;
+    font-size: 14px;
+    color : #050505;
+    font-weight: 400;
+}
+
+.box-bd li p {
+    margin:0 20px;
+    font-size: 12px;
+    color:  #999;
+    text-align: right;   
+}
+
+.box-bd p span {
+    color: orange; 
+}
+
+/* 上一个盒子没有写高度，且子元素为浮动的，所以该盒子会上移 */
+/* .box-test {
+    background-color: pink;
+    height: 2000px;
+    width: 1800px;
+} */
+/* 所以要清除浮动 */
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after{
+    clear:both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.teacher-hd h3{
+    font-weight: normal;
+    color:#494949;
+    font-size: 20px;
+    float: left;
+}
+
+
+.teacher-hd a{
+    color: #a5a5a5;
+    font-size: 12px;
+    float: right;
+    margin-right: 30px;
+}
+
+.teacher-hd {
+    height: 60px;
+    line-height: 60px;
+    background-color: #fff;
+}
+
+.teacher-bd {
+    width: 1215px;
+}
+
+.teacher-bd li {
+    float: left;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    box-shadow: 2px 2px 2px rgba(0,0,0, .2);
+} 
+
+.teacher-bd h4 {
+    font-weight: normal;
+    font-size:  12px;
+    color: palevioletred;
+    padding: 15px 5px 15px 15px;
+    text-align: right;
+}
+
+.teacher-bd p {
+    font-size:  12px;
+    color:#a5a5a5;
+    padding: 0 5px 15px 15px;
+    text-align: right;
+}
+
+.teacher-bd li:hover{
+    background-color: rgba(0,0,0,.1);
+} 
+
+.teacher-bd span {
+    color: orange;
+}
+/* box end  */

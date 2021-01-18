@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动盒子兄弟关系</title>
+    <!-- 在一个父级盒子中，如果前一个兄弟盒子是:
+    1 浮动的， 那么当前盒子会与前一个盒子的顶部对齐
+    2 普通流的， 那么当前盒子会显示在前一个兄弟盒子的下方
+    注意：浮动只会影响当前的或者是后面的标准流盒子，不会影响前面的标准流 -->
+    <style>
+        .father {
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+        }
+
+        .damao {
+            /* float: left; */
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        .ermao {
+            float: left;
+            width: 300px;
+            height: 300px;
+            background-color:springgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="damao"></div>
+        <div class="ermao"></div>
+    </div>
+</body>
+</html>

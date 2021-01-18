@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航栏案例</title>
+    <style>
+        /* 1 变化样式 有大小 一行显示 我们想到了 行内块元素
+        2 鼠标经过 变化底色 和文字的颜色 */
+        a {
+            /* 一定要进行模式转换 */
+            display: inline-block;
+            width: 200px;
+            height: 300px;
+            line-height: 300px;    
+            background-color: pink;
+            /* 文字水平居中 */
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            
+        }
+
+        a:hover{
+            background-color: purple;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    
+    <a href="">C++</a>
+    <a href="">Python</a>
+    <a href="">Go</a>
+    <a href="">JavaScript</a>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>半透明</title>
+    <style>
+        div.alpha{
+           width: 1024px; 
+           height: 1434px;
+           background-color: rgba(0,0,0,0.4);
+          
+        }
+
+        div.alpha:hover{
+            width: 1024px; 
+           height: 1434px;
+           background-image: url(images/6.jpg);
+           background-repeat: no-repeat;
+         
+        }
+
+        /* 子元素可以继承父元素的样式(text-, font-, line- 这些元素开头的可以继承，以及color属性) */
+        /* 选择器相同，则按照就近原则
+        选择器不同, 则按照权重 */
+        /*标签选择器 权重0,0,0,1 组长*/
+        /* div {
+            color: pink;
+        }
+         /*类选择器 权重0,0,1,0 班长*/
+        /* .one{
+            color: blue;
+        } */
+         /*id选择器 权重0,1,0,0 班主任*/
+        /* #two{
+            color: green;
+        }  */
+
+        /* !important 在样式属性的后面添加 权重最高 */
+    </style>
+</head>
+<body>
+    <div class="alpha">
+       
+    </div>
+</body>
+</html>

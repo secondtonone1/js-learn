@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外边距</title>
+    <style>
+        .nav{
+            /* margin: 20px; */
+            height: 200px;
+            width: 200px;
+            background-color: rebeccapurple;
+            /* 让块级盒子居中对齐，要设置宽度，并且margin设置为auto */
+            margin: auto;
+        }
+
+        .hezi{
+            width: 600px;
+            height: 300px;
+            background-color: pink;
+            /* 块级盒子水平居中 */
+            margin: 20px  auto;
+            /* 盒子里面的文字，行内元素，行内块元素居中对齐 */
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="nav">
+    </div>
+
+    <div class="hezi">
+        盒子 <strong>盒子模型</strong>
+        <input type="text">
+    </div>
+</body>
+</html>

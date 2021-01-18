@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 垂直外边距合并 */
+        /* 只给一个盒子添加margin值 */
+        .top ,
+        .bottom{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            
+        }
+
+        .top{
+            margin-bottom: 100px;
+        }
+
+        .bottom{
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            margin-top: 50px;
+        }
+    </style>
+        
+</head>
+<body>
+    <div class="top"></div>
+    <div class="bottom"></div>
+</body>
+</html>

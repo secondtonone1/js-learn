@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 权重0,0,1,1 */
+         .nav a{
+        color:red;
+    }
+    /* 权重0,0,2,0 */
+    .nav .first{
+        color:pink;
+    }
+
+    .nav {
+        color:palegreen;
+    }
+
+    p{
+        color: brown;
+    }
+    
+    </style>
+   
+</head>
+<body>
+    <!-- 继承的权重为0，优先看哪个节点被选中 -->
+    <div class="nav">宅男喜欢的关键词
+        <a href="" class="first">黑丝</a>
+        <a href="">御姐</a>
+        <a href="" >萝莉</a>
+        <a href="">大长腿</a>
+        <p class = "pd">继承的权重为0</p>
+    </div>
+
+</body>
+</html>

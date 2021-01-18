@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>overflow标签法</title>
+    <style>
+        .one {
+            background-color: pink;
+            /* 为父级盒子设置overflow:hidden就可以让父级盒子自动扩展 */
+            overflow: hidden;
+        }
+
+        .float1 {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+
+        .float2 {
+            float: left;
+            width: 300px;
+            height: 300px;
+            background-color: greenyellow;
+        }
+
+        .two {
+            height: 400px;
+            background-color: indigo;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="one">
+        <div class="float1">
+
+        </div>
+    
+        <div class="float2">
+    
+        </div>
+    </div>
+
+   
+    <div class="two">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父级after伪元素</title>
+    <style>
+        /* 声明清除浮动的样式 */
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+
+        .clearfix {
+            /* ie6，ie7专门清除浮动的样式 */
+            *zoom : 1; 
+        }
+
+        .one {
+            background-color: black;
+        }
+
+        .son1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .son2 {
+            width: 300px;
+            height: 300px;
+            background-color: orangered;
+        }
+
+        .two {
+            width: 800px;
+            height: 200px;
+            background-color: orchid;
+        }
+    </style>
+</head>
+<body>
+    <div class="one clearfix">
+        <div class="son1"></div>
+        <div class="son2"></div>
+    </div>
+    <div class="two">
+
+    </div>
+</body>
+</html>

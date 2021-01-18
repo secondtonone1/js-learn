@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嵌套关系外边距</title>
+    <style>
+        .father{
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            /* 嵌套关系 垂直外边距合并 解决方案
+            1 可以为父元素定义上边框 transparent 透明 */
+            /* border-top: solid transparent 1px; */
+            /* 2 可以给父级指定一个 上padding值 */
+            /* padding-top: 1px ; */
+            /* 3 可以为父元素添加overflow:hidden */
+            overflow: hidden; 
+        }
+
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            margin-top: 200px;
+            /* float: left; */
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">
+
+        </div>
+    </div>
+</body>
+</html>

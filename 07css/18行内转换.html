@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行内转换</title>
+    <style>
+        span{
+            /*把行内元素转化为块级别元素*/
+            display: block;
+            width: 100px;
+            height: 200px;
+            background-color: green;
+        }
+
+        div{
+            /*把块级元素转化为行内元素*/
+            display: inline;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        a{
+            display:inline-block;
+            width: 80px;
+            height: 25px;
+            background-color:salmon;
+        }
+    </style>
+</head>
+<body>
+    <div>美女cos</div>
+    <br/>
+    <input type="image" src="images/1.jpg" width="300px">
+    <br/>
+    <div>美女诱惑</div>
+    <br/>
+
+    <span>清纯</span>
+    <span>诱惑</span>
+    <span>性感</span>
+    <a href="">百度</a>
+    <a href="">新浪</a>
+    <br/>
+</body>
+</html>

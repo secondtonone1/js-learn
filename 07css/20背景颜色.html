@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg {
+            background-color: pink;
+            width: 800px;
+            height: 600px;
+            /* 必须加url， 不提倡加引号 */
+            background-image: url(images/1.jpg);
+            font:  700 40px  "微软雅黑";
+            color:tomato;
+            /* 默认的是平铺
+            background-repeat: repeat; */
+            /* 背景图片不平铺 */
+            background-repeat: no-repeat;
+            /* 横向平铺
+            background-repeat: repeat-x; */
+
+            /* 纵向平铺
+            /* background-repeat: repeat-y; */
+            /* 右上角
+            background-position: right top;
+            左下角
+            background-position:left bottom;  */
+            /* background-position: center center; */
+            /* background-position: left center; */
+            /* 第一个是X是10，第二个是Y是50 */
+            /* background-position: 10px 50px; */
+            /* 以下说明 x 10像素 y垂直居中的 */
+            /* background-position: 10px center; */
+            /* 以下说明x是居中的， 垂直是10像素 */
+            background-position: center 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        美女coser
+    </div>
+</body>
+</html>

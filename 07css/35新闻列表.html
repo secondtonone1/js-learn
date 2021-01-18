@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻列表</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .box{
+            margin: 10px auto;
+            width: 298px;
+            height: 198px;
+            border: 1px solid #ccc;
+            /* 如果一个盒子给了padding值会撑大盒子 */
+            padding: 15px;
+            background:url(images/line.jpg) ;
+        }
+        /* 取消列表样式 */
+        li{
+            list-style:none;
+        }
+        .box h2{
+            font-size: 18px;
+            padding: 5px 0;
+            border-bottom: 1px solid #ccc; 
+            margin-bottom: 10px;
+        }
+
+        .box ul li{
+            height: 30px;
+            border-bottom: 1px dashed #ccc;
+            background:  url(images/arr.jpg) no-repeat 5px center;
+            /* 因为这个li 没有宽度 所以padding 不会撑开盒子 */
+            padding-left: 20px;
+        }
+
+        .box ul li a{
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            line-height: 30px;
+            /* margin-left: 20px; */
+            /* padding-left: 20px; */
+        }
+
+        .box ul li a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- 标题盒子 -->
+        <h2>
+            cosplay美女列表
+        </h2>
+       
+        <!-- 列表盒子 -->
+        <ul>
+            <li><a href="">小姐姐黑丝诱惑</a></li>
+            <li><a href="">cosplay娜美</a></li>
+            <li><a href="">夏之秋诗语</a></li>
+            <li><a href="">消逝的光芒</a></li>
+            <li><a href="">流光岁月</a></li>
+        </ul>
+    </div>
+</body>
+</html>
