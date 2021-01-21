@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝对定位以带有定位的父级元素来移动位置</title>
+    <!-- 父级元素的定位可以是绝对定位，相对定位，固定定位，子元素采用绝对定位，这样以父元素为基准移动位置 -->
+    <style>
+       .grandfather {
+            width: 500px;
+            height: 500px;
+            background-color: skyblue;
+            /* 如果父亲没有定位，则继续向父级查找，找到爷爷定位 */
+            position: absolute;
+       }
+
+       .father {
+           width: 350px;
+           height: 350px;
+           background-color: pink;
+           margin: 200px;
+           /* 标准流的子盒子总是以父盒子为基准 */
+          /* 如果父亲有定位，则以父亲为基准，移动位置 */
+          /* position: relative; */
+       }
+
+       .son {
+           width: 200px;
+           height: 200px;
+           background-color: purple;
+           /* margin-left: 10px; */
+           position:absolute;
+           top:50px;
+           left:50px;
+       }
+    </style>
+</head>
+<body>
+   
+    <div class="grandfather">
+        <div class="father">
+            <div class="son"></div>
+        </div>
+    </div>
+</body>
+</html>

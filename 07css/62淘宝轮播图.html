@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .taobao {
+            width: 500px;
+            height: 280px;
+            margin: 100px auto;
+            /* 父盒子要用relative定位，保证占位 */
+            position: relative;
+        }
+
+        .arr-l,
+        .arr-r {
+            /* 用定位来做，压住图片 */
+            position: absolute;
+            background-color: rgba(243, 18, 112, 0.4);
+            width: 20px;
+            height: 30px;
+            /* 文字水平居中 */
+            /* text-align: center; */
+            /* 文字行高居中 */
+            line-height: 30px;
+            /* 文字去除下划线 */
+            text-decoration: none;
+            /* 父级高度的50% */
+            top: 50%;
+            /* 往上走自己高度的一半，保证盒子居中 */
+            margin-top: -15px;
+            color: #fff;
+        }
+
+        .arr-l {
+           
+            /* 圆角矩形 */
+            /* border-radius: 15px; */
+            /* 半圆角度 */
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .arr-r {
+            /* 用定位来做，压住图片 */
+            right: 0px;
+            text-align: right;
+            /* 圆角矩形 */
+            /* border-radius: 15px; */
+            /* 半圆角度 */
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .arr-l:hover,
+        .arr-r:hover {
+            background-color: rgba(243, 18, 112, 0.8);
+        }
+
+        .taobao .circle {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            margin-left: -35px;
+            width: 70px;
+            height: 13px;
+            background-color:rgba(255,255,255,0.3); 
+            border-radius: 7px;       
+        }
+       
+        .circle li {
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            float: left;
+            margin: 3px;
+            border-radius: 4px;
+        }
+
+        .circle li:hover{
+            background-color: orangered;
+        }
+    </style>
+</head>
+<body>
+    <div class="taobao">
+         <!-- 左按钮 -->
+         <a href="#" class="arr-l">&lt</a>
+         <!-- 右按钮 -->
+         <a href="#" class="arr-r">&gt</a>
+         <img src="images/scroll1.jpg" alt=""> 
+         <ul class="circle">
+             <li></li>
+             <li></li>
+             <li></li>
+             <li></li>
+             <li></li>
+         </ul>
+    </div>
+</body>
+</html>

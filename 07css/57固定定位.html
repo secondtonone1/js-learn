@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin : 0px;
+            padding: 0px;
+        }
+        .beauty img {
+            position: fixed;
+            top: 300px;
+            left : 10px;
+        }
+
+        .box img {
+            margin: 45px auto;
+        }
+
+       .topline {
+           /* 因为没有写宽度，默认的宽度是内容的宽度 */
+           /* 此时我们需要给这个top盒子通栏的盒子 */
+           /* 所以定位的盒子，很多情况下，需要单写宽度 */
+           width: 100%;
+           background-color: pink;
+           height: 45px;
+           position: fixed;
+           text-align: center;
+       }
+    </style>
+</head>
+<body>
+    <div class="topline">
+      <img src="images/fixed2.jpg" alt=""> 
+    </div>
+    <div class="beauty">
+        <img src="images/8.jpg" alt="" width="200px">
+    </div>
+    <div class="box">
+        <img src="images/fixed.jpg" alt="" >
+    </div>
+   
+</body>
+</html>

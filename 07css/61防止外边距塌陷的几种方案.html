@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 防止外边距塌陷 
+        1 设置父亲border */
+        /* .father {
+            background-color: green;
+            width: 400px;
+            height: 400px;
+            border: solid 1px black;
+        }
+
+        .son1 {
+            background-color: pink;
+            width: 200px;
+            height: 200px;
+            margin: 40px;
+        } */
+
+        /* 2 设置父亲浮动或者子元素浮动 */
+          /* .father {
+            background-color: green;
+            width: 400px;
+            height: 400px;
+        }
+
+        .son1 {
+            float: left;
+            background-color: pink;
+            width: 200px;
+            height: 200px;
+            margin: 40px;
+        }  */
+
+        /* 3 设置overflow:hiden */
+        /* .father {
+            background-color: green;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .son1 {
+            background-color: pink;
+            width: 200px;
+            height: 200px;
+            margin: 40px;
+        }   */
+
+        /* 4 设置绝对定位和固定定位，可以防止外边距塌陷 */
+         .father {
+            background-color: green;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            position: absolute;
+        }
+
+        .son1 {
+            background-color: pink;
+            width: 200px;
+            height: 200px;
+            margin: 40px;
+        }   
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son1">
+
+        </div>
+    </div>
+
+</body>
+</html>

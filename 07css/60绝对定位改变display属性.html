@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* 块级元素 不给width 默认通栏显示 */
+            /* 1 利用 display inline-block */
+            /* display: inline-block; */
+            /* 行内块不给width 默认宽度就是内容的宽度 */
+            /* 2 浮动也能转换 */
+            /* float: left; */
+            /* 3固定定位和绝对定位也能转换 */
+            position: absolute;
+            height: 100px;
+            background-color: pink;
+        }
+
+        span {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            top: 200px;
+            left: 200px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div>两处相思同淋雪，此生也算共白头</div>
+    <span></span>
+</body>
+</html>
