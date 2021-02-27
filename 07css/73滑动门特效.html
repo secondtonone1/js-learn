@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 1 a 是设置左侧背景(设置左门) */
+        a {
+            /* 要设置行内块，保证图片高度完全加载进来，也要保证随文字自动扩充 */
+            display: inline-block; 
+            height: 33px;
+            background: url(images/to.png) no-repeat;
+            color: #fff;
+            padding-left: 15px;
+            line-height: 33px;
+            text-decoration: none;
+        }
+        /* 2 span是设置右侧背景(设置右门) */
+        a span{
+            display: inline-block;
+            height: 33px;
+            background: url(images/to.png) no-repeat top right;
+            color: #fff;
+            padding-right: 15px;
+            line-height: 33px;
+        }
+        /* 3 因为整个导航栏都是链接，所以a要包含span */
+        /* 4 因为我们是滑动门，左右推拉，跟文字内容多少有关系，此时需要用文字撑开盒子，就要用到行内块元素 */
+        
+    </style>
+</head>
+<body>
+   <a href="#">
+       <span>首页很不错。。。。。。。</span>
+   </a>
+   
+   <a href="#">
+       <span>你很漂亮</span>
+   </a>
+</body>
+</html>

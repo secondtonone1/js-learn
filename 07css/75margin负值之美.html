@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* 浮动的盒子是紧贴在一起的 */
+            float: left;
+            width: 200px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin-left: -1px;
+            margin-top: -1px;
+            position: relative;
+        }
+
+        /* 鼠标经过div的意思 */
+        div:hover {
+            border: 1px solid #f40;
+            /* 要让当前鼠标经过这个div，div在最上边就好 */
+            /* 定位的盒子是最高层的, 定位的盒子会压住标准流和浮动流的盒子 */
+            /* 此处只能用相对定位，相对定位是占位置的 */
+            /* position: relative; */
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+   
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

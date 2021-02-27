@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nouse {
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            margin: auto;
+            vertical-align: middle;
+        }
+        /* 基线对齐 */
+        .one {
+            /* 默认的是基线对齐 */
+            vertical-align: baseline;
+        }
+
+        .two {
+            vertical-align: middle;
+        }
+
+        .three {
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <div class="nouse">
+        你会失望的,vertical-align对块级元素无效
+    </div>
+
+    <div>
+        <img src="images/2.jpg" alt="" class="one"> 基线对齐
+    </div>
+
+    <div>
+        <img src="images/2.jpg" alt="" class="two"> 居中对齐
+    </div>
+
+    <div>
+        <img src="images/2.jpg" alt="" class="three"> 顶部对齐
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px  red solid;
+        }
+        /* 默认的图片对齐方式为vertical-aline 为 base-line 所以底部会有空白*/
+        /* div {
+            vertical-align: baseline;
+        } */
+
+        /* 可以修改vertical-line模式达到去掉图片空白的效果 */
+        /* div img{
+            vertical-align: middle;
+        }  */
+
+        /* 也可以修改img为block */
+        div img {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 图片是行内元素 -->
+    <div>
+        <img src="images/3.jpg" alt="" width="500px">
+    </div>
+</body>
+</html>

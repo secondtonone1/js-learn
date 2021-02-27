@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        body {
+            background: url(images/wx.jpg) repeat-x;
+        }
+
+        .nav a{
+            display: inline-block;
+            height: 33px;
+            background: url(images/to.png) no-repeat;
+            color: #fff;
+            padding-left: 15px;
+            line-height: 33px;
+            font-size: 14px;
+        }
+
+        .nav span {
+            display: inline-block;
+            height: 33px;
+            background: url(images/to.png) no-repeat top right;
+            color: #fff;
+            padding-right: 15px;
+            line-height: 33px;
+        }
+
+        .nav li {
+            float: left;
+            margin: 0 5px;
+        }
+
+        .nav {
+           margin-top: 20px; 
+        }
+
+        /* 鼠标经过a链接换背景图片，span也要换背景图片 */
+        /* .nav a:hover {
+            background-image: url(images/ao.png) ;
+        }
+
+        .nav a:hover span {
+            background-image: url(images/ao.png) ;
+        } */
+
+        /* 也可以使用并集选择器 */
+        .nav a:hover, .nav a:hover span {
+            background-image: url(images/ao.png) ;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="#">
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>帮助</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>文档</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>论坛</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>社区</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
