@@ -56,7 +56,6 @@
 /* header区域 */
 .header {
     height: 105px;
-    background-color: pink;
     position: relative;
 }
 
@@ -102,4 +101,67 @@
     border: 0;
     font-size: 16px;
     color: #fff;
+}
+
+/* hotwords部分 */
+
+.hotwords {
+    position: absolute;
+    left: 348px;
+    top: 65px;
+}
+
+.hotwords li {
+    float: left;
+    margin-left: 10px;
+}
+
+/* shopcar部分 */
+.shopcar {
+    position: absolute;
+    top: 25px;
+    right: 64px;
+    width: 138px;
+    height: 34px;
+    border: 1px solid #dfdfdf;
+    background-color: #f7f7f7;
+    line-height: 34px;
+    text-align: center;
+}
+
+.car {
+    font-family: 'icomoon';
+    float: left;
+    margin-left: 10px;
+    color: #da5555;
+}
+
+.arrow {
+    font-family: 'icomoon';
+    float: left;
+    margin-left: 10px;
+}
+
+.mycar {
+    float: left;
+    margin-left: 10px;
+}
+
+.count {
+    position: absolute;
+    top:-5px;
+    /* 应该是左对齐，文字增加，图标向右扩充 */
+    left: 100px;
+    background-color: #e60012;
+    height: 14px;
+    line-height: 14px;
+    padding: 0 3px;
+    color: #fff;
+    border-radius: 7px 7px 7px 0;
+}
+
+/* nav 部分 */
+.nav {
+    height: 45px;
+    border-bottom: 2px solid #b1191a;
 }
