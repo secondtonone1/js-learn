@@ -1,290 +1,292 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
 </head>
+
 </html>
 <script>
-//在全局作用域下，加var和不加var的区别  
-//1 是否被提前声明  
-//2 不加var那么就是一个赋值过程，相当于给window添加了一个属性并且赋值
-//当函数在运行的时候就会产生一个私有的作用域，并且这个作用域内的变量也是私有变量。
-//并且这个私有变量在外访问不到，我们把这种函数运行的时候产生的私有作用域里的私有变量
-//不受外界干扰的这种机制叫做闭包
+    //在全局作用域下，加var和不加var的区别  
+    //1 是否被提前声明  
+    //2 不加var那么就是一个赋值过程，相当于给window添加了一个属性并且赋值
+    //当函数在运行的时候就会产生一个私有的作用域，并且这个作用域内的变量也是私有变量。
+    //并且这个私有变量在外访问不到，我们把这种函数运行的时候产生的私有作用域里的私有变量
+    //不受外界干扰的这种机制叫做闭包
 
-/*
-console.log(total);
-var total = 0;
-function fn(num1, num2){
+    /*
     console.log(total);
-    var total = num1 + num2;
+    var total = 0;
+    function fn(num1, num2){
+        console.log(total);
+        var total = num1 + num2;
+        console.log(total);
+    }
+    fn(100,200);
     console.log(total);
-}
-fn(100,200);
-console.log(total);
-*/
+    */
 
-//上述代码输出
-/*
-undefined
-undefined
-300
-0
-*/
-//全局变量total会预解释，所以第一个total输出undefined
-//接着fn预解释并定义，然后执行fn(100,200)
-//执行fn时，num1,num2被视为私有变量，total也被是为私有变量，在fn私有作用域预解释
-//所以第二个total输出为undefined，第三个total输出为300
-//最后一个total因为是全局变量，所以输出是0
+    //上述代码输出
+    /*
+    undefined
+    undefined
+    300
+    0
+    */
+    //全局变量total会预解释，所以第一个total输出undefined
+    //接着fn预解释并定义，然后执行fn(100,200)
+    //执行fn时，num1,num2被视为私有变量，total也被是为私有变量，在fn私有作用域预解释
+    //所以第二个total输出为undefined，第三个total输出为300
+    //最后一个total因为是全局变量，所以输出是0
 </script>
 
 <script>
-//函数的运行： 1 如果有形参是形参赋值  2 预解释  3 代码逐行执行 ..
-//区别私有变量还是全局变量：函数运行的时候，函数体内如有带var就是私有变量，
-//如果是形参也可以理解是一个私有变量。代码在执行的时候，
-//首先查找当前运行环境内(作用域，栈)的私有变量，如果有直接用，如果没有去上一级作用域去查找，
-//如果有就拿来用，如果没有一直查找到顶级的window全局作用域，如果没有就报错"not defined",
-//我们把这种查找机制叫做作用域链
-/*
-console.log(total);
-var total = 0;
-function fn(num1, num2) {
+    //函数的运行： 1 如果有形参是形参赋值  2 预解释  3 代码逐行执行 ..
+    //区别私有变量还是全局变量：函数运行的时候，函数体内如有带var就是私有变量，
+    //如果是形参也可以理解是一个私有变量。代码在执行的时候，
+    //首先查找当前运行环境内(作用域，栈)的私有变量，如果有直接用，如果没有去上一级作用域去查找，
+    //如果有就拿来用，如果没有一直查找到顶级的window全局作用域，如果没有就报错"not defined",
+    //我们把这种查找机制叫做作用域链
+    /*
     console.log(total);
-    total = num1 + num2;
-    console.log(total);
-}
-fn(100,200);
-console.log(total);
-*/
-/*
-程序输出
-undefined
-0
-300
-300
-*/
-//全局total会预解释提前声明，fn会预解释，提前声明fn并为fn赋值地址，
-//因为打印第一个total，所以为undefined
-//接着执行fn，因fn内部total不是私有变量，根据作用域链继续向上查找，找到window全局作用域，
-//进而找到全局total，所以第二个total输出为0，第三个为300，而最后一个total输出也为300
-/*
-var num = 12;
-console.log(num); //12
-console.log(num2); //Uncaught ReferenceError: num2 is not defined
-num2 = 12;
-*/
-//因为num2未加var定义，所以无法预解释，输出num2会异常
-/*
-var num = 12;
-console.log(num);
-num2 = 12;
-console.log(num2);
-*/
-//两个输出都是12,
-//因为num2未加var，所以相当于给window增加了一个num2的属性名，属性值为12
-//var num = 12相当于定义了一个全局变量num,
-//而且也相当于给window增加了一个属性名num,属性值为12
-//所以当输出num时系统会优先查找num全局变量，输出num2因为没有全局变量num2，
-//所以会输出window的属性名，window.num2
-/*
-function fn() {
-    console.log(total);
-    total = 100;
-}
-fn();
-console.log(total);
-*/
-//上述代码会报错，因为fn内部输出total会根据作用域链向上查找，没有全局变量total,
-//全局window中没有total这个属性，所以会异常，程序运行到fn就异常终止了。
-/*
-function fn() {
-    total = 100;
-}
-fn();
-console.log(total);
-*/
-//上述代码会输出100
-//因为fn内部对total赋值会向上查找，直到window作用域，也没有找到全局变量total
-//所以就相当于给window添加了一个total的属性，属性值为12，所以输出100
-
-/*
-if (!("num" in window)) {
-    var num = 12;
-}
-console.log(num)
-*/
-//1 预解释不管条件是否成立，都会把var的变量提前声明
-//所以"num" in window 返回ture，！就是false，那么num不会赋值，所以输出undefined
-/*
-fn();
-var fn = function(){
-    console.log("ok");
-};
-*/
-//2 匿名函数之函数表达式，把函数定义的部分当作值赋值给一个变量或者元素的一个事件
-//预解释的时候只预解释"="左边的，右边的是值，不参与预解释
-//window下的预解释：var fn
-//上述代码在执行fn();时会报异常，"fn is not a function"
-//因为fn预解释只做声明，未作赋值。
-
-/*
-fn();
-function fn(){
-    console.log("ok");
-}
-fn();
-*/
-//因为这种方式预解释会将fn声明并赋值为对空间的地址，地址里存储的时函数体内容。
-//所以当执行fn时都会输出ok
-//3 自执行函数定义的那个function在全局作用域下不进行预解释，当代码执行到这个
-//位置的时候定义和执行一起完成了
-//自执行函数:定义和执行在一起完成了
-/*
-~function(){
-    var num = 1200;
-}();
-*/
-//4
-/*
-function fn(){
-    console.log(num); //undefined
-    return function(){
-
-    };
-    var num = 100;
-}
-fn();
-*/
-//4 函数体中return下边的代码虽然不执行了，但是需要进行预解释
-// return后面跟着都是返回值，所以不进行预解释，也就是fn内部返回的function()
-//不进行预解释
-//5 
-/*
-var fn=13;
-function fn() {
-    console.log("ok");
-}
-*/
-//在js中,如果变量的名字和函数的名字重复了，也算冲突
-//在预解释的时候如果名字已经声明过，不需要重新声明，但是需要重新赋值
-/*
-fn();
-function fn(){ console.log(1);};
-fn();
-var fn=10;
-fn();
-function fn(){console.log(2);};
-fn();
-*/
-//上述代码会输出两个2，第三次会报异常
-//因为fn为函数，预解释，提前声明并赋值内存地址，fn=xxxxfff111
-//因为预解释不会对同一个变量重复声明，所以var fn=10不会声明
-//function fn(){console.log(2);};也不会声明，但是会将fn重新赋值 fn=xxxxd209
-//所以会连续输出两次2，fn=10，fn()会被视为10(),这样就会报错fn is not a function
-/*
-var num = 12;
-function fn() {
-    var num = 120;
-    return function(){
-        console.log(num);
-    };
-}
-
-var f = fn();
-f();
-~function(){
-    var num = 1200;
-    f();
-}();
-*/
-//如何查找当前作用域的上一级作用域？
-//看当前函数是在哪个作用域下定义的，那么他的上级作用域就是谁
-//和函数在哪里执行的没有任何关系
-
-//对象数据类型和函数数据类型在定义的时候都会开辟一个堆内存，堆内存有一个引用地址。
-//这个地址赋值给外部变量，那么这块内存引用计数增加，就不会释放了。
-//可以让外部变量赋值为null，那么堆内存的引用计数就减少，当引用计数为0，则内存就会释放了。，
-//全局作用域只有当页面关闭的时候才会销毁
-//私有作用域(只有函数执行会产生私有作用域)
-//一般情况下，函数执行会形成一个新的私有的作用域，当私有作用域代码执行完成后，
-//当前作用域都会主动释放和销毁。
-//特殊情况:
-//当前私有作用域中的部分内容被作用域以外的东西占用了，那么当前的这个作用域就不能销毁了
-//a 函数执行返回了一个引用数据类型的值，并且在函数的外边被一个其他的东西给接受了，
-//这种情况下一般形成的私有作用域都会销毁
-/*
-function fn(){
-    var num = 100;
-    return function(){
-
+    var total = 0;
+    function fn(num1, num2) {
+        console.log(total);
+        total = num1 + num2;
+        console.log(total);
     }
-}
-var f = fn(); 
-*/
-//此时fn执行形成的私有作用域不能销毁，因为function(){}的堆内存被f占用了，
-//所以fn无法回收自己的私有作用域
+    fn(100,200);
+    console.log(total);
+    */
+    /*
+    程序输出
+    undefined
+    0
+    300
+    300
+    */
+    //全局total会预解释提前声明，fn会预解释，提前声明fn并为fn赋值地址，
+    //因为打印第一个total，所以为undefined
+    //接着执行fn，因fn内部total不是私有变量，根据作用域链继续向上查找，找到window全局作用域，
+    //进而找到全局total，所以第二个total输出为0，第三个为300，而最后一个total输出也为300
+    /*
+    var num = 12;
+    console.log(num); //12
+    console.log(num2); //Uncaught ReferenceError: num2 is not defined
+    num2 = 12;
+    */
+    //因为num2未加var定义，所以无法预解释，输出num2会异常
+    /*
+    var num = 12;
+    console.log(num);
+    num2 = 12;
+    console.log(num2);
+    */
+    //两个输出都是12,
+    //因为num2未加var，所以相当于给window增加了一个num2的属性名，属性值为12
+    //var num = 12相当于定义了一个全局变量num,
+    //而且也相当于给window增加了一个属性名num,属性值为12
+    //所以当输出num时系统会优先查找num全局变量，输出num2因为没有全局变量num2，
+    //所以会输出window的属性名，window.num2
+    /*
+    function fn() {
+        console.log(total);
+        total = 100;
+    }
+    fn();
+    console.log(total);
+    */
+    //上述代码会报错，因为fn内部输出total会根据作用域链向上查找，没有全局变量total,
+    //全局window中没有total这个属性，所以会异常，程序运行到fn就异常终止了。
+    /*
+    function fn() {
+        total = 100;
+    }
+    fn();
+    console.log(total);
+    */
+    //上述代码会输出100
+    //因为fn内部对total赋值会向上查找，直到window作用域，也没有找到全局变量total
+    //所以就相当于给window添加了一个total的属性，属性值为100，所以输出100
+
+    /*
+    if (!("num" in window)) {
+        var num = 12;
+    }
+    console.log(num)
+    */
+    //1 预解释不管条件是否成立，都会把var的变量提前声明
+    //所以"num" in window 返回ture，！就是false，那么num不会赋值，所以输出undefined
+    /*
+    fn();
+    var fn = function(){
+        console.log("ok");
+    };
+    */
+    //2 匿名函数之函数表达式，把函数定义的部分当作值赋值给一个变量或者元素的一个事件
+    //预解释的时候只预解释"="左边的，右边的是值，不参与预解释
+    //window下的预解释：var fn
+    //上述代码在执行fn();时会报异常，"fn is not a function"
+    //因为fn预解释只做声明，未作赋值。
+
+    /*
+    fn();
+    function fn(){
+        console.log("ok");
+    }
+    fn();
+    */
+    //因为这种方式预解释会将fn声明并赋值为对空间的地址，地址里存储的时函数体内容。
+    //所以当执行fn时都会输出ok
+    //3 自执行函数定义的那个function在全局作用域下不进行预解释，当代码执行到这个
+    //位置的时候定义和执行一起完成了
+    //自执行函数:定义和执行在一起完成了
+    /*
+    ~function(){
+        var num = 1200;
+    }();
+    */
+    //4
+    /*
+    function fn(){
+        console.log(num); //undefined
+        return function(){
+
+        };
+        var num = 100;
+    }
+    fn();
+    */
+    //4 函数体中return下边的代码虽然不执行了，但是需要进行预解释
+    // return后面跟着都是返回值，所以不进行预解释，也就是fn内部返回的function()
+    //不进行预解释
+    //5 
+    /*
+    var fn=13;
+    function fn() {
+        console.log("ok");
+    }
+    */
+    //在js中,如果变量的名字和函数的名字重复了，也算冲突
+    //在预解释的时候如果名字已经声明过，不需要重新声明，但是需要重新赋值
+    /*
+    fn();
+    function fn(){ console.log(1);};
+    fn();
+    var fn=10;
+    fn();
+    function fn(){console.log(2);};
+    fn();
+    */
+    //上述代码会输出两个2，第三次会报异常
+    //因为fn为函数，预解释，提前声明并赋值内存地址，fn=xxxxfff111
+    //因为预解释不会对同一个变量重复声明，所以var fn=10不会声明
+    //function fn(){console.log(2);};也不会声明，但是会将fn重新赋值 fn=xxxxd209
+    //所以会连续输出两次2，fn=10，fn()会被视为10(),这样就会报错fn is not a function
+    /*
+    var num = 12;
+    function fn() {
+        var num = 120;
+        return function(){
+            console.log(num);
+        };
+    }
+
+    var f = fn();
+    f();
+    ~function(){
+        var num = 1200;
+        f();
+    }();
+    */
+    //如何查找当前作用域的上一级作用域？
+    //看当前函数是在哪个作用域下定义的，那么他的上级作用域就是谁
+    //和函数在哪里执行的没有任何关系
+
+    //对象数据类型和函数数据类型在定义的时候都会开辟一个堆内存，堆内存有一个引用地址。
+    //这个地址赋值给外部变量，那么这块内存引用计数增加，就不会释放了。
+    //可以让外部变量赋值为null，那么堆内存的引用计数就减少，当引用计数为0，则内存就会释放了。，
+    //全局作用域只有当页面关闭的时候才会销毁
+    //私有作用域(只有函数执行会产生私有作用域)
+    //一般情况下，函数执行会形成一个新的私有的作用域，当私有作用域代码执行完成后，
+    //当前作用域都会主动释放和销毁。
+    //特殊情况:
+    //当前私有作用域中的部分内容被作用域以外的东西占用了，那么当前的这个作用域就不能销毁了
+    //a 函数执行返回了一个引用数据类型的值，并且在函数的外边被一个其他的东西给接受了，
+    //这种情况下一般形成的私有作用域都不会销毁
+    /*
+    function fn(){
+        var num = 100;
+        return function(){
+
+        }
+    }
+    var f = fn(); 
+    */
+    //此时fn执行形成的私有作用域不能销毁，因为function(){}的堆内存被f占用了，
+    //所以fn无法回收自己的私有作用域
 </script>
 <div id="div1">请点击我~~</div>
 <script>
-// b 在一个私有作用域中给DOM元素的事件绑定方法，一般情况下私有作用域都不销毁
-/*
-var oDiv = document.getElementById("div1");
-~function(){
-    oDiv.onclick = function(){
+    // b 在一个私有作用域中给DOM元素的事件绑定方法，一般情况下私有作用域都不销毁
+    /*
+    var oDiv = document.getElementById("div1");
+    ~function(){
+        oDiv.onclick = function(){
 
-    }
-}();
-*/
-//当前自执行函数形成的私有作用域也不会销毁
-//c 下述情况不立即销毁，fn返回的函数没被其他变量占用，但是需要执行一才会释放。
-/*
-function fn() {
-    var num = 100;
-    return function(){
+        }
+    }();
+    */
+    //当前自执行函数形成的私有作用域也不会销毁
+    //c 下述情况不立即销毁，fn返回的函数没被其他变量占用，但是需要执行一才会释放。
+    /*
+    function fn() {
+        var num = 100;
+        return function(){
 
+        }
     }
-}
-fn()();
-*/ 
-//首先执行fn，返回一个小函数对应的内存地址，然后让返回的小函数再执行
-/*
-function fn(){
-    var i = 10; 
-    return function(n){
-        console.log(n+(++i));
+    fn()();
+    */
+    //首先执行fn，返回一个小函数对应的内存地址，然后让返回的小函数再执行
+    /*
+    function fn(){
+        var i = 10; 
+        return function(n){
+            console.log(n+(++i));
+        }
     }
-}
-var f = fn();
-f(10)
-f(20);
-fn()(10);
-fn()(20);
-*/
-//函数输出如下
-//21
-//32
-//21
-//31
-//因为fn将返回的函数地址赋值给f，所以fn私有作用域不会被回收，那么i的信息就会被记录
-//第一次++i ,i变为11，所以f(10)为21，接下来f(20),因为fn私有作用域没有被回收，++i
-//i变为12，那么f(20)就是32，而fn()(10)这种方式调用fn每次都会回收私有作用域
-//所以i每次都是11，那么f()(10)就是21,f()(20)就是31
-//类似的问题还有这个
+    var f = fn();
+    f(10)
+    f(20);
+    fn()(10);
+    fn()(20);
+    */
+    //函数输出如下
+    //21
+    //32
+    //21
+    //31
+    //因为fn将返回的函数地址赋值给f，所以fn私有作用域不会被回收，那么i的信息就会被记录
+    //第一次++i ,i变为11，所以f(10)为21，接下来f(20),因为fn私有作用域没有被回收，++i
+    //i变为12，那么f(20)就是32，而fn()(10)这种方式调用fn每次都会回收私有作用域
+    //所以i每次都是11，那么f()(10)就是21,f()(20)就是31
+    //类似的问题还有这个
 
-function fn(i) {
-    return function(n) {
-        console.log(n + i++);
+    function fn(i) {
+        return function(n) {
+            console.log(n + i++);
+        }
     }
-}
-var f = fn(13);
-f(12);
-f(14);
-fn(15)(12);
-fn(16)(13);
+    var f = fn(13);
+    f(12);
+    f(14);
+    fn(15)(12);
+    fn(16)(13);
 
-// fn内部调用function(n)因为i会根据作用域链向上查找，找到fn的形参i，所以此时i为13，f(12)为25
-// f(14)因为fn不会释放作用域，所有i为14,此时f(14)为28
-//fn(15)(12)每次运行都会产生新的作用域，调用结束后释放，所以为27
-//fn(16)(13)结果为29
+    // fn内部调用function(n)因为i会根据作用域链向上查找，找到fn的形参i，所以此时i为13，f(12)为25
+    // f(14)因为fn不会释放作用域，所有i为14,此时f(14)为28
+    //fn(15)(12)每次运行都会产生新的作用域，调用结束后释放，所以为27
+    //fn(16)(13)结果为29
 </script>

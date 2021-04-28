@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 0;
+            height: 30px;
+            background-color: pink;
+            /* steps 就是分几步完成我们的动画 有了steps 就不要再写 ease 或者linear了 */
+            animation: w 10s steps(22) forwards;
+            font-size: 20px;
+            /* 强制一行显示 */
+            white-space: nowrap;
+            /* 溢出隐藏 */
+            overflow: hidden;
+        }
+        
+        @keyframes w {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 440px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>我宁愿所有痛苦都留在心里，也不愿忘记你的眼睛~</div>
+</body>
+
+</html>

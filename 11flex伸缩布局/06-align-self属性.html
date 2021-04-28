@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            display: flex;
+            width: 60%;
+            height: 150px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+        
+        section div:nth-child(1) {
+            width: 100px;
+            height: 150px;
+            background-color: red;
+        }
+        
+        section div:nth-child(2) {
+            background-color: greenyellow;
+            flex: 1;
+        }
+        
+        section div:nth-child(3) {
+            width: 100px;
+            height: 150px;
+            background-color: blue;
+        }
+        
+        p {
+            display: flex;
+            width: 60%;
+            height: 300px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+        
+        p span:nth-child(1) {
+            background-color: powderblue;
+            align-self: flex-start;
+            width: 100px;
+            height: 150px;
+            order: 0;
+            margin: 0 20px;
+        }
+        
+        p span:nth-child(2) {
+            background-color: royalblue;
+            order: -1;
+            width: 100px;
+            height: 150px;
+            margin: 0 20px;
+        }
+        
+        p span:nth-child(3) {
+            background-color: salmon;
+            align-self: flex-end;
+            width: 100px;
+            height: 150px;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <p>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </p>
+</body>
+
+</html>

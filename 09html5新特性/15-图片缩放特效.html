@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .floatdiv {
+            float: left;
+            overflow: hidden;
+            margin: 10px;
+        }
+        
+        .floatdiv img {
+            transition: all 0.4s;
+        }
+        
+        .floatdiv img:hover {
+            transform: scale(1.2);
+        }
+        
+        li {
+            float: left;
+            width: 30px;
+            height: 30px;
+            border: 1px solid pink;
+            text-align: center;
+            line-height: 30px;
+            list-style: none;
+            margin: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all .4s;
+        }
+        
+        li:hover {
+            transform: scale(1.2);
+        }
+        
+        .parent {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="floatdiv">
+            <a href=""><img src="media/scale.jpg" alt=""></a>
+        </div>
+        <div class="floatdiv">
+            <a href=""><img src="media/scale.jpg" alt=""></a>
+        </div>
+        <div class="floatdiv">
+            <a href=""><img src="media/scale.jpg" alt=""></a>
+        </div>
+
+    </div>
+    <div class="parent2">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

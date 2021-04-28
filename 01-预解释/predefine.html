@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num = 12;
+
+        function fn() {
+            var num = 120;
+            return function() {
+                console.log(num);
+            };
+        }
+
+        var f = fn();
+        f();
+        ~ function() {
+            var num = 1200;
+            f();
+        }();
+
+        //如何查找当前作用域的上一级作用域？
+        //看当前函数是在哪个作用域下定义的，那么他的上级作用域就是谁
+        //和函数在哪里执行的没有任何关系
+
+        // 因为f 为fn返回的函数，fn内部的匿名函数定义在fn内，所以function()内部的num向上查找，找到的是fn内部的num
+    </script>
+</body>
+
+</html>

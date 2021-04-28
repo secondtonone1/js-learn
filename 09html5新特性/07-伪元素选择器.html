@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+        /* 伪元素会生成一个元素，这个元素是行内元素，但是是不可见的 */
+        /* before和after必有content属性 */
+        /* 伪元素和标签选择器一样，权重为1 */
+        
+        div::before {
+            content: "我";
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        
+        div::after {
+            content: "程序员";
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>是</div>
+</body>
+
+</html>

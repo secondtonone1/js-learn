@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li:first-child {
+            color: green;
+        }
+        
+        ul li:last-child {
+            color: purple;
+        }
+        
+        ul li:nth-child(7) {
+            color: red;
+        }
+        /* n 是关键词 even是偶数 odd是奇数  */
+        /* ul li:nth-child(odd) {
+            background-color: rosybrown;
+        } */
+        /* n是公式 但是n 从0开始计算 */
+        /* 2n类似于even */
+        
+        ul li:nth-child(2n) {
+            background-color: rosybrown;
+        }
+        
+        ul li:nth-child(2n+1) {
+            background-color: peru;
+        }
+        
+        div :nth-child(2) {
+            background-color: purple;
+        }
+        
+        div :nth-child(1) {
+            background-color: pink;
+        }
+        /* nth-child 选择子元素，不管什么类型 */
+        
+        div span:nth-child(2) {
+            background-color: pink;
+        }
+        
+        div span:first-of-type {
+            background-color: skyblue;
+        }
+        
+        div span:last-of-type {
+            background-color: orangered;
+        }
+        
+        div span:nth-of-type(2) {
+            background-color: palegreen;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ul 里面只允许放li 所以nth-child 和 nth-of-type 就一样了 -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+    <div>
+        <p>p标签</p>
+        <span>span1标签</span>
+        <span>span2标签</span>
+        <span>span3标签</span>
+    </div>
+
+</body>
+
+</html>
