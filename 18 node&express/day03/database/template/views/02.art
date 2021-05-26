@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	{{if age > 18}}
+		年龄大于18
+	{{else if age < 15}}
+		年龄小于15
+	{{else}}
+		年龄不符合要求
+	{{/if}}
+
+	<% if (age > 18) { %> 
+		年龄大于18
+	<% } else if (age < 15) { %>
+		年龄小于15  
+	<% } else {%>
+		年龄不符合要求
+	<% } %>
+</body>
+</html>

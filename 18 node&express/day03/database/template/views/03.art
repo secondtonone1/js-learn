@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+	{{each users}}
+		<li>
+			{{$value.name}}
+			{{$value.age}}
+			{{$value.sex}}
+		</li>
+	{{/each}}
+	</ul>
+	<ul>
+		<% for(var i=0; i < users.length; i ++) { %>
+			<li>
+				<%=users[i].name%>
+				<%=users[i].age%>
+				<%=users[i].sex%>
+			</li>
+		<% } %>
+	</ul>
+</body>
+</html>
