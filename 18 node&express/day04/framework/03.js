@@ -26,7 +26,6 @@ app.get('/request', (req, res, next) => {
 })
 
 app.get('/request', (req, res) => {
-        7
         res.send(req.name)
     })
     //监听端口
