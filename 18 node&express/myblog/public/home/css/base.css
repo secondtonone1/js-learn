@@ -148,6 +148,7 @@ textarea {
 .navigation li a:hover,
 .navigation li .active {
     background: #e0c3a2ee;
+    color: #3F434C;
 }
 
 
@@ -179,7 +180,7 @@ textarea {
 }
 
 .article-info .author {
-    color: #ff7300;
+    color: #e0c3a2ee;
 }
 
 
