@@ -12,6 +12,8 @@ const app = express()
 const path = require('path')
     //数据库连接
 require('./model/connect')
+const morgan = require('morgan')
+const config = require('config')
     // require('./model/user')
 
 //引入body-parser模块  用来处理post请求参数
@@ -34,6 +36,18 @@ template.defaults.imports.dateFormat = dateFormat
 app.use(express.static(path.join(__dirname, 'public')))
     //拦截请求， 判断用户登录状态
 app.use('/admin', require('./middleware/login_guard'))
+    // console.log(config.get('title'))
+console.log('node env is ', process.env.NODE_ENV)
+    //获取系统环境变量， 返回值是对象
+if (process.env.NODE_ENV.trim() == 'production') {
+    //当前是生产环境
+    console.log('当前是生产环境')
+} else {
+    //当前是开发环境
+    console.log('当前是开发环境')
+    app.use(morgan('dev'))
+}
+
 const home = require('./route/home')
 const admin = require('./route/admin')
     //为路由匹配请求路径

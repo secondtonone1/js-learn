@@ -46,13 +46,15 @@ module.exports = async(req, res, next) => {
                 await Article.create({
                     title: fields.title,
                     author: user_find._id,
-                    publishDate: fields.publishDate,
+                    publishData: fields.publishData,
                     cover: files.cover.path.split('public')[1],
                     content: fields.content,
                 })
                 res.redirect('/admin/article')
             } catch (ex) {
                 console.log(ex.message)
+                    //密码比对失败
+                res.redirect('/admin/article', { message: ex.message })
             }
 
         })

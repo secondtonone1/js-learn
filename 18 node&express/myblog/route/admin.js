@@ -35,5 +35,8 @@ admin.post('/article-add', require('./admin/article-add'))
 //删除文章功能路由
 admin.get('/article-delete', require('./admin/article-delete'))
 
+//实现文章修改功能
+admin.post('/article-modify', require('./admin/article-modify'))
+
 //将路由对象作为模块成员导出
 module.exports = admin

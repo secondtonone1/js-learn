@@ -1,6 +1,7 @@
 const { Article } = require('../../model/article')
     // 导入mongoose-sex-page模块
 const pagination = require('mongoose-sex-page')
+const config = require('config')
 let article_delete = async(req, res) => {
     try {
         // console.log(req.query.id)
@@ -16,10 +17,10 @@ let article_delete = async(req, res) => {
             //display 指定客户端要显示的页码数量
             //exec 向数据库中发送查询请求
             //查询所有文章数据
-        let articles = await pagination(Article).find().page(page).size(2).display(3).populate('author').exec()
+        let articles = await pagination(Article).find().page(page).size(config.get('page.size')).display(config.get('page.display')).populate('author').exec()
         if (page > articles.pages) {
-            page = articles.pages
-            articles = await pagination(Article).find().page(page).size(2).display(3).populate('author').exec()
+            page = articles.pages || 1
+            articles = await pagination(Article).find().page(page).size(config.get('page.size')).display(config.get('page.display')).populate('author').exec()
         }
         let str = JSON.stringify(articles);
         let articles_json = JSON.parse(str)
@@ -32,6 +33,7 @@ let article_delete = async(req, res) => {
 
     } catch (ex) {
         console.log('except is ', ex)
+        res.redirect('/admin/article', { message: ex.message })
     }
 }
 
